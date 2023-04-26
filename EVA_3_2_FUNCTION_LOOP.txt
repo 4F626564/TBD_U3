@@ -1,0 +1,61 @@
+ MySQL  localhost:3306 ssl  eva_3  SQL > desc actor;
++-------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+| Field       | Type              | Null | Key | Default           | Extra                                         |
++-------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+| actor_id    | smallint unsigned | NO   |     | 0                 |                                               |
+| first_name  | varchar(45)       | NO   |     | NULL              |                                               |
+| last_name   | varchar(45)       | NO   |     | NULL              |                                               |
+| last_update | timestamp         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
++-------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+4 rows in set (0.0029 sec)
+ MySQL  localhost:3306 ssl  eva_3  SQL > select contar_actor() as actores;
++---------+
+| actores |
++---------+
+|     200 |
++---------+
+1 row in set (0.0398 sec)
+ MySQL  localhost:3306 ssl  eva_3  SQL > desc actor;
++-------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+| Field       | Type              | Null | Key | Default           | Extra                                         |
++-------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+| actor_id    | smallint unsigned | NO   |     | 0                 |                                               |
+| first_name  | varchar(45)       | NO   |     | NULL              |                                               |
+| last_name   | varchar(45)       | NO   |     | NULL              |                                               |
+| last_update | timestamp         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
++-------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+4 rows in set (0.0142 sec)
+ MySQL  localhost:3306 ssl  eva_3  SQL > select agregar_actor(201, Obed, Estrada);
+ERROR: 1054 (42S22): Unknown column 'Obed' in 'field list'
+ MySQL  localhost:3306 ssl  eva_3  SQL > select agregar_actor(201, 'Obed', 'Estrada');
++---------------------------------------+
+| agregar_actor(201, 'Obed', 'Estrada') |
++---------------------------------------+
+|                                     1 |
++---------------------------------------+
+1 row in set (0.0430 sec)
+ MySQL  localhost:3306 ssl  eva_3  SQL > drop function agregar_actor;
+Query OK, 0 rows affected (0.0475 sec)
+ MySQL  localhost:3306 ssl  eva_3  SQL > drop function agregar_actor;
+Query OK, 0 rows affected (0.0475 sec)
+ MySQL  localhost:3306 ssl  eva_3  SQL > select count(*) from actor;
++----------+
+| count(*) |
++----------+
+|      201 |
++----------+
+1 row in set (0.0029 sec)
+ MySQL  localhost:3306 ssl  eva_3  SQL > select max(actor_id) from actor;
++---------------+
+| max(actor_id) |
++---------------+
+|           201 |
++---------------+
+1 row in set (0.0407 sec)
+ MySQL  localhost:3306 ssl  eva_3  SQL > select factorial(5);
++--------------+
+| factorial(5) |
++--------------+
+|          120 |
++--------------+
+1 row in set (0.0383 sec)
