@@ -1,0 +1,102 @@
+MySQL Shell 8.0.32
+
+Copyright (c) 2016, 2023, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > /sqp
+SyntaxError: Invalid regular expression: missing /
+ MySQL  JS > /sql
+SyntaxError: Invalid regular expression: missing /
+ MySQL  JS > /connect --mc root@localhost
+SyntaxError: Invalid regular expression: missing /
+ MySQL  JS > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Please provide the password for 'root@localhost': **********
+Save password for 'root@localhost'? [Y]es/[N]o/Ne[v]er (default No): n
+Fetching schema names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 15
+Server version: 8.0.32 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  JS > \sql
+Switching to SQL mode... Commands end with ;
+Fetching global names for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  SQL > use sakila
+Default schema set to `sakila`.
+Fetching global names, object names from `sakila` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  sakila  SQL > use sakila;
+Default schema set to `sakila`.
+Fetching global names, object names from `sakila` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  sakila  SQL > set @miscorreos;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > set @miscorreos="";
+Query OK, 0 rows affected (0.0368 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select @miscorreos;
++-------------+
+| @miscorreos |
++-------------+
+|             |
++-------------+
+1 row in set (0.0005 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > call listacorreos(@miscorreos);
+ERROR: 1305 (42000): FUNCTION sakila.contact does not exist
+ MySQL  localhost:3306 ssl  sakila  SQL > select @miscorreos;
++-------------+
+| @miscorreos |
++-------------+
+|             |
++-------------+
+1 row in set (0.0003 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > call listacorreos(@miscorreos);
+ERROR: 1305 (42000): FUNCTION sakila.contact does not exist
+ MySQL  localhost:3306 ssl  sakila  SQL > desc sakila;
+ERROR: 1146 (42S02): Table 'sakila.sakila' doesn't exist
+ MySQL  localhost:3306 ssl  sakila  SQL > show tables;
++----------------------------+
+| Tables_in_sakila           |
++----------------------------+
+| actor                      |
+| actor_info                 |
+| address                    |
+| category                   |
+| city                       |
+| country                    |
+| customer                   |
+| customer_list              |
+| film                       |
+| film_actor                 |
+| film_category              |
+| film_list                  |
+| film_text                  |
+| inventory                  |
+| language                   |
+| nicer_but_slower_film_list |
+| payment                    |
+| rental                     |
+| sales_by_film_category     |
+| sales_by_store             |
+| staff                      |
+| staff_list                 |
+| store                      |
++----------------------------+
+23 rows in set (0.0020 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > call listacorreos(@miscorreos);
+ERROR: 1305 (42000): FUNCTION sakila.contact does not exist
+ MySQL  localhost:3306 ssl  sakila  SQL > select miscorreos;
+ERROR: 1054 (42S22): Unknown column 'miscorreos' in 'field list'
+ MySQL  localhost:3306 ssl  sakila  SQL > select @miscorreos;
++-------------+
+| @miscorreos |
++-------------+
+|             |
++-------------+
+1 row in set (0.0003 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > use eva_3;
+Default schema set to `eva_3`.
+Fetching global names, object names from `eva_3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  eva_3  SQL > create table personas(id int autoincrement primary key, nombre varchar(50) not null, apellido_pat varchar(50) not null, apellido_mat varchar (50) ,fecha_nac datatime, clave_rfc varchar (50) null );
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autoincrement primary key, nombre varchar(50) not null, apellido_pat varchar(50)' at line 1
+ MySQL  localhost:3306 ssl  eva_3  SQL > create table personas(id int auto_increment primary key, nombre varchar(50) not null, apellido_pat varchar(50) not null, apellido_mat varchar (50) ,fecha_nac datatime, clave_rfc varchar (50) null );
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'datatime, clave_rfc varchar (50) null )' at line 1
+ MySQL  localhost:3306 ssl  eva_3  SQL >
